@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style3.css">
+    <title>Admin panel</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <i class="fa fa-list" onclick="col_bar()"></i>
+            </div>
+            <div class="search">
+                <!-- <input type="text" name="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label> -->
+                <h2>HỆ THỐNG SÀNG LỌC VÀ HỖ TRỢ CHỨNG KHÓ ĐỌC</h2>
+                <!-- <h3>Bảng điều khiển</h1> -->
+            </div>
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <button  class="tablinks" onclick="openCity(event, 'thongtin')" id="default_open">
+                        <i class="fa fa-user"></i>
+                        <h2>Thông tin</h2>
+                    </button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="openCity(event, 'thongso')">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>Thông số</h2>
+                    </button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="openCity(event, 'nhantin')">
+                        <i class="fas fa-comment-dots"></i>
+                        <h2>Nhắn tin</h2>
+                    </button>
+                </li>
+                
+            </ul>
+        </div>
+     <div id="thongtin" class="main">
+        <div class="container">
+
+            <!-- ===== ===== Header/Navbar ===== ===== -->
+            <!-- <header>
+                <div class="brandLogo">
+                    <span>Hồ sơ Bệnh nhân</span>
+                </div>
+            </header> -->
+    
+    
+            <!-- ===== ===== User Main-Profile ===== ===== -->
+            <section class="userProfile card">
+                <div class="profile">
+                    <% if (users[id.id].name == "Nguyễn Lê Hạnh Linh") { %>
+                        <img src="img/profile1.png" alt="profile" width="200px" height="200px">
+                        <% } else{ %>
+                        <img src="img/profile2.png" alt="profile" width="200px" height="200px">
+                    <% } %>
+                    <img src="img/profile.png" alt="profile" width="200px" height="200px">
+                </div>
+            </section>
+    
+    
+            <!-- ===== ===== Work & Skills Section ===== ===== -->
+            <section class="work_skills card">
+    
+                <!-- ===== ===== Work Contaienr ===== ===== -->
+                <div class="work">
+                    <h1 class="heading">Tiểu sử</h1>
+                    <div class="primary">
+                        <h1>Không mắc bệnh</h1>
+                        <h1></h1>
+                    </div>
+                </div>
+            </section>
+    
+    
+            <!-- ===== ===== User Details Sections ===== ===== -->
+            <section class="userDetails card">
+                <div class="userName">
+                    <!-- <div class="user"> -->
+                        <h1 class="heading">Thông tin cá nhân</h1>
+                    <!-- </div> -->
+                    <h1 class="name">Họ và tên: <%=users[id.id].name%></h1>
+                    <h1 class="name">Tuổi: <%=users[id.id].age%> tuổi</h1>
+                    <h1 class="name">Giới tính: <%=users[id.id].gender%></h1>
+                    <h1 class="name">Quê quán: Thành phố Hồ Chí Minh</h1>
+                </div>
+    
+            </section>
+    
+    
+            <!-- ===== ===== Timeline & About Sections ===== ===== -->
+            <section class="timeline_about card">
+                <div class="tabs">
+                    <ul>
+                        <li class="timeline">
+                            <!-- <i class="ri-eye-fill ri"></i> -->
+                            <span>KẾT QUẢ SÀNG LỌC</span>
+                        </li>
+                        <button data-modal-target="#modal">
+                            <i class="fas fa-info-circle fa-1x"></i>
+                        </button>
+                    </ul>
+                </div>
+    
+                <div class="contact_Info">
+                    <!-- <h1 class="heading"></h1> -->
+                    <ul>
+                    <!-- <li class="phone"> -->
+                                <% if (users[id.id].detail >= 32) { %>
+                                <h4 class="label" style='color: orange;'>Có nguy cơ</h4>
+                                <% } else{ %>
+                                <h4 class="label" style='color: green;'>Không có nguy cơ</h4>
+                                <% } %>
+                     <!-- </li> -->
+                    </ul>
+                    <div class="progress">
+                        <div class="progress carD">
+                            <div class="info">
+                                <div class="name">Câu hỏi ghi nhớ</div>
+                                <div class="detail">3 câu / 5 câu</div>
+                            </div>
+                            <div class="Loading memo"><span></span></div>
+                        </div>
+                        <div class="progress carD">
+                            <div class="info">
+                                <div class="name">Câu hỏi toán</div>
+                                <div class="detail">3 câu / 3 câu</div>
+                            </div>
+                            <div class="Loading math"><span></span></div>
+                        </div>
+                        <div class="progress carD">
+                            <div class="info">
+                                <div class="name">Câu hỏi đọc</div>
+                                <div class="detail">2 câu / 5 câu</div>
+                            </div>
+                            <div class="Loading read"><span></span></div>
+                        </div>
+                        <div class="progress carD">
+                            <div class="info">
+                                <div class="name">Câu hỏi khác</div>
+                                <div class="detail">7 câu / 10 câu</div>
+                            </div>
+                            <div class="Loading others"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+        <!-- <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">Chẩn đoán chi tiết</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="title">I. Biểu đồ Eye-Tracking</div>
+                <img src="img/eyetrack.png" alt="profile" width="100%" height="100%">
+            </div>
+        </div>
+        <div id="overlay"></div> -->
+    </div>
+    <div id="thongso" class="main">
+        <div class="cards">
+            <div class="card2">
+                <div class="card-content">
+                    <!-- <div class="number">1217</div>
+                    <div class="card-name">Students</div> -->
+                </div>
+                <!-- <div class="icon-box">
+                    <i class="fas fa-user-graduate"></i>
+                </div> -->
+            </div>
+
+            <!-- <button data-modal-target="#modal">Open Modal</button> -->
+
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title" id="modal-title">Example Modal</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div id="modal-body">
+                    <div class="modal-body-box">Siu</div>
+                    <div class="modal-body-box">Siu</div>
+                    <div class="modal-body-box">Siu</div>
+                </div>
+            </div>
+
+            <div id="overlay"></div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">14</div>
+                    <div class="card-name">Bài tập</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="number">Tốt</div>
+                    <div class="card-name">Đánh giá</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+            <div class="card2">
+                <!-- <div class="card-content">
+                    <div class="number">68</div>
+                    <div class="card-name">Employees</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div> -->
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart">
+                <h2>Bài tập (7 ngày qua)</h2>
+                <div>
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+            <div class="chart doughnut-chart">
+                <h2>Số bài tập đã hoàn thành</h2>
+                <div>
+                    <canvas id="doughnut"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="nhantin" class="main">
+        <div class="chat-bar-collapsible">
+            <div class="content">
+                <button id="chat-button" type="button" class="collapsible"><%=users[id.id].name%>
+                    <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+                </button>
+                <div class="full-chat-block">
+                    <!-- Message Container -->
+                    <div class="outer-container">
+                        <div class="chat-container">
+                            <!-- Messages -->
+                            <div id="chatbox">
+                                <h5 id="chat-timestamp"></h5>
+                                <!-- <p id="botStarterMessage" class="botText"><span>Loading...</span></p> -->
+                            </div>
+    
+                            <!-- User input box -->
+                            <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <input id="textInput" class="input-box" type="text" name="msg"
+                                        placeholder="Nhấn Enter để gửi tin nhắn">
+                                    <p></p>
+                                </div>
+    
+                                <div class="chat-bar-icons">
+                                    <!-- <i id="chat-icon" style="color: crimson;" class=""
+                                        onclick="heartButton()"></i> -->
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                        onclick="sendButton()"></i>
+                                </div>
+                            </div>
+                            <div id="chat-bar-bottom">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/4cf720d27e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <!-- <script src="/chart/chart1.js"></script>
+    <script src="/chart/chart2.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/client-dist/socket.io.js"></script>
+    <!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> -->
+    <script>
+        var socket = io();
+        socket.on('connect', function(data) {
+        });
+        socket.on('web', (data) =>{
+            console.log("web:" + data);
+            let botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+        });
+
+    </script>
+</body>
+
+</html>
